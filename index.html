@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+    <meta charset="UTF-8">
+
+    <title>hyunsu</title>
+</head>
+<body>
+    <h1 id="sound"></h1>
+    <input id="name" type="text">
+    <button onclick="getsound()">API 요청</button>
+    <script>
+        function getsound(){
+            const name= document.getElementById(`name`).value
+            fetch(`http://localhost:3000/sound/${name}`)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+                document.getElementById('sound').innerHTML=data
+            });
+        }
+    </script>
+
+</body>
+</html>
