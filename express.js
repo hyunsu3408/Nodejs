@@ -3,9 +3,7 @@
 // 실행 후 확인은 localhost:3000
 // 서버 종료는 ctrl + c
 
-import express from 'express'
-
-// const express = require('express')
+const express = require('express')
 const app = express()
 const port = 3000
 
