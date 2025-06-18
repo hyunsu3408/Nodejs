@@ -1,10 +1,7 @@
-
 const express = require('express');
-const app = express();
-
 const router = express.Router();
 
-router.route("/contacts")
+router.route("/")
 .get((req, res) => {
     res.send("Contacts Page");
 })
@@ -12,7 +9,7 @@ router.route("/contacts")
     res.send("Create Contacts");
 });
 
-router.route("/contacts/:id")
+router.route("/:id")
 .put((req, res) => {
     res.send(`update contact for id ${req.params.id}`);
 })
@@ -20,7 +17,5 @@ router.route("/contacts/:id")
     res.send(`delete contact for id ${req.params.id}`);
 });
 
-app.use(router);
-app.listen(3000, ()=>{
-    console.log("서버 실행 중");
-})
+
+module.exports = router;
