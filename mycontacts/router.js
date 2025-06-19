@@ -9,6 +9,7 @@ router.route("/contacts")
     res.send("Contacts Page");
 })
 .post((req, res) => {
+    console.log(req.body);
     res.send("Create Contacts");
 });
 
