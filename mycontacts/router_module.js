@@ -8,6 +8,8 @@ app.get("/",(res,req)=>{
 
 })
 
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 app.use("/contacts",require("C:\\Users\\hyunsu\\study\\Nodejs\\routes\\contactRoute"));
 app.listen(3000, ()=>{
