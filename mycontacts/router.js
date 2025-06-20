@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 
+// express의 router 호출
 const router = express.Router();
 
 router.route("/contacts")
@@ -21,7 +22,9 @@ router.route("/contacts/:id")
     res.send(`delete contact for id ${req.params.id}`);
 });
 
+// 미들 웨어 사용하기 위해 app.use(router)
 app.use(router);
+
 app.listen(3000, ()=>{
     console.log("서버 실행 중");
 })

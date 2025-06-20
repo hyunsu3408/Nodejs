@@ -8,6 +8,7 @@ app.get("/",(res,req)=>{
 
 })
 
+// 외부의 json과 url을 읽기
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 

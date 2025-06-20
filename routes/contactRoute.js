@@ -22,5 +22,5 @@ router.route("/:id")
     res.send(`delete contact for id ${req.params.id}`);
 });
 
-
+// router를 외부에서 쓰기 위해 exports 해주기
 module.exports = router;
