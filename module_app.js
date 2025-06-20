@@ -1,6 +1,7 @@
 // require로 모듈 가져오기
 const user = require('./module_user');
 const hello = require('./module_hello');
+// 한개 이상의 모듈을 받을 때는 중괄호로 받음
 const {user1,user2} = require('./module_user1')
 
 

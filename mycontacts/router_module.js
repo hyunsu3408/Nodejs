@@ -12,6 +12,7 @@ app.get("/",(res,req)=>{
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+// get에서 경로를 use안에 사용 가능
 app.use("/contacts",require("C:\\Users\\hyunsu\\study\\Nodejs\\routes\\contactRoute"));
 app.listen(3000, ()=>{
     console.log("서버 실행 중");

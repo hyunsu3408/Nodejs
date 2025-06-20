@@ -1,3 +1,5 @@
+// 로그 색깔 바꾸는 프레임 워크
+
 const c = require('ansi-colors')
 
 function hello(name){

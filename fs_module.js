@@ -18,6 +18,7 @@ fs.readFile('./path_module.js',"utf-8",(err,data)=>{
     }
     console.log(data)
     //파일 쓰기 = writeFile
+    // test.txt 파일 생성
     fs.writeFile("./test.txt",data,(err)=>{
         if (err){
             console.log(err)

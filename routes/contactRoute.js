@@ -6,6 +6,7 @@ router.route("/")
     res.send("Contacts Page");
 })
 .post((req, res) => {
+    // req.body에 req 정보 들어오게 됨
     console.log(req.body);
     const {name,email,phone} = req.body;
     if (!name || !email || !phone){
