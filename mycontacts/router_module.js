@@ -2,7 +2,10 @@
 // routes/contatRoute.js 파일 가져오기
 
 const express = require('express');
+const dbConnect = require('../config/dbconnect');
 const app = express();
+
+dbConnect();
 
 app.get("/",(res,req)=>{
 
