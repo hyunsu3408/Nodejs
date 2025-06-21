@@ -1,5 +1,5 @@
-const mongoose = require("mongoose")
 require("dotenv").config(); //환경변수 가져오기
+const mongoose = require("mongoose")
 
 //비동기 처리
 // async , await
