@@ -3,10 +3,12 @@
 
 require("dotenv").config();
 const express = require('express');
+// dbconnect.js 파일의 dbConnect 함수 가져오기
 const dbConnect = require('../config/dbconnect');
 const app = express();
 
 console.log(process.env.DB_CONNECT)
+// 몽고DB연결
 dbConnect();
 
 app.get("/",(req,res)=>{

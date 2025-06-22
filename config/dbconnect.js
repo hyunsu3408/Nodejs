@@ -1,4 +1,5 @@
 require("dotenv").config(); //환경변수 가져오기
+// 몽고 디비 연결위해 mongoose 모듈 사용
 const mongoose = require("mongoose")
 
 //비동기 처리
