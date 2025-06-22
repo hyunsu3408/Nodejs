@@ -10,7 +10,6 @@ console.log(process.env.DB_CONNECT)
 dbConnect();
 
 app.get("/",(req,res)=>{
-
 })
 
 
