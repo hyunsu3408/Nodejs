@@ -1,19 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const {createContact,getAllContacts} = require("../controllers/conatactController")
+
 
 router.route("/")
-.get((req, res) => {
-    res.send("Contacts Page");
-})
-.post((req, res) => {
-    // req.body에 req 정보 들어오게 됨
-    console.log(req.body);
-    const {name,email,phone} = req.body;
-    if (!name || !email || !phone){
-        return res.send("필수값 입력 바람")
-    }
-    res.send("Create Contacts");
-});
+.get(getAllContacts)
+.post(createContact);
 
 router.route("/:id")
 .put((req, res) => {
