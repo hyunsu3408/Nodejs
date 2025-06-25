@@ -24,4 +24,4 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.model("Contact",contactSchema)
 
 // 모델 내보내기
-model.exports = Contact;
+module.exports = Contact;
