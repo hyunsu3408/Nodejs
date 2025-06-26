@@ -3,11 +3,14 @@ const asyncHandler = require("express-async-handler")
 const Contact = require("../models/contactmodel")
 
 // GET all contacts
-// GET /contacts
-
 const getAllContacts = asyncHandler(async(req,res)=>{
     const contacts = await Contact.find()
-    res.send(contacts);
+    const users=[
+        {name:"kim",email:"kim@abc.net",phone:"141414"},
+        {name:"Lee",email:"Lee@abc.net",phone:"414141"}
+    ];
+    //템플릿 엔진 연결
+    res.render("getAll.ejs",{ users : users });
 })
 
 // create contact
@@ -19,7 +22,7 @@ const createContact = asyncHandler(async(req,res)=>{
     if (!name || !email || !phone){
         return res.send("필수값 입력 바람");
     }
-
+    
     const contact = await Contact.create({
         name,
         email,
@@ -28,14 +31,14 @@ const createContact = asyncHandler(async(req,res)=>{
     res.send("Create Contacts");
 })
 
+// GET /contacts 1개만 가져오기
 const getContacts = asyncHandler(async(req,res)=>{
     const contact = await Contact.findById(req.params.id);
     res.send(contact)
 })
 
 
-// Get contact
-// GET /contact/:id
+// 수정
 const updateContact = asyncHandler(async(req,res)=>{
     const id = req.params.id;
     const {name, email, phone} = req.body;

@@ -9,7 +9,11 @@ const app = express();
 
 // 템플릿엔진 연결
 // npm i ejs로 템플릿 엔진 다운
+app.set("view engine","ejs")
 app.set("views","./views");
+
+// 정적인 폴더랑 연결
+app.use(express.static("./public"))
 
 console.log(process.env.DB_CONNECT)
 // 몽고DB연결
