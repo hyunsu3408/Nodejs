@@ -7,6 +7,10 @@ const express = require('express');
 const dbConnect = require('../config/dbconnect');
 const app = express();
 
+// 템플릿엔진 연결
+// npm i ejs로 템플릿 엔진 다운
+app.set("views","./views");
+
 console.log(process.env.DB_CONNECT)
 // 몽고DB연결
 dbConnect();
