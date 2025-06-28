@@ -5,12 +5,7 @@ const Contact = require("../models/contactmodel")
 // GET all contacts
 const getAllContacts = asyncHandler(async(req,res)=>{
     const contacts = await Contact.find()
-    const users=[
-        {name:"kim",email:"kim@abc.net",phone:"141414"},
-        {name:"Lee",email:"Lee@abc.net",phone:"414141"}
-    ];
-    //템플릿 엔진 연결
-    res.render("getAll.ejs",{ users : users });
+    res.render("index.ejs", {contacts:contacts})
 })
 
 // create contact
