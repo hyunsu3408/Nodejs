@@ -8,6 +8,12 @@ const getAllContacts = asyncHandler(async(req,res)=>{
     res.render("index.ejs", {contacts:contacts})
 })
 
+// View add Contact form
+// GET /contacts/add
+const addContactForm = (req,res) =>{
+    res.render("add.ejs")
+}
+
 // create contact
 // POST /contact
 const createContact = asyncHandler(async(req,res)=>{
@@ -29,7 +35,7 @@ const createContact = asyncHandler(async(req,res)=>{
 // GET /contacts 1개만 가져오기
 const getContacts = asyncHandler(async(req,res)=>{
     const contact = await Contact.findById(req.params.id);
-    res.send(contact)
+    res.render("update.ejs", {contact:contact})
 })
 
 
@@ -60,4 +66,5 @@ const deleteContact = asyncHandler(async(req,res)=>{
 
 module.exports = {
     createContact,getAllContacts
-    ,updateContact,deleteContact,getContacts};
+    ,updateContact,deleteContact
+    ,getContacts,addContactForm};

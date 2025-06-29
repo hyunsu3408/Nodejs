@@ -2,12 +2,16 @@ const express = require('express');
 const router = express.Router();
 const {createContact,getAllContacts
     ,updateContact,deleteContact
-    ,getContacts} = require("../controllers/conatactController")
+    ,getContacts,addContactForm} = require("../controllers/conatactController")
 
 
 router.route("/")
-.get(getAllContacts)
-.post(createContact);
+.get(getAllContacts);
+
+// 연락처 추가
+router.route("/add")
+.get(addContactForm)
+.post(createContact)
 
 router.route("/:id")
 .get(getContacts)
