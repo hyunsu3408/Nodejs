@@ -29,8 +29,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 // get에서 경로를 use안에 사용 가능
-app.use("/contacts",require("../routes/contactRoute"));
 app.use(methodOverride("_method"));
+app.use("/contacts",require("../routes/contactRoute"));
 app.listen(3000, ()=>{
     console.log("서버 실행 중");
 })
