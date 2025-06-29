@@ -50,6 +50,10 @@ const updateContact = asyncHandler(async(req,res)=>{
     contact.name = name;
     contact.email = email;
     contact.phone = phone;
+
+    contact.save();
+
+    res.redirect("/contacts");
 })
 
 const deleteContact = asyncHandler(async(req,res)=>{

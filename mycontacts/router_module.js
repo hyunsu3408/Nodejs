@@ -5,6 +5,7 @@ require("dotenv").config();
 const express = require('express');
 // dbconnect.js 파일의 dbConnect 함수 가져오기
 const dbConnect = require('../config/dbconnect');
+const methodOverride=require("method-override")
 const app = express();
 
 // 템플릿엔진 연결
@@ -29,6 +30,7 @@ app.use(express.urlencoded({extended:true}));
 
 // get에서 경로를 use안에 사용 가능
 app.use("/contacts",require("../routes/contactRoute"));
+app.use(methodOverride("_method"));
 app.listen(3000, ()=>{
     console.log("서버 실행 중");
 })
