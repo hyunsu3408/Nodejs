@@ -12,11 +12,11 @@ const getLogin = (req,res)=>{
 const loginuser = asyncHandler((req,res)=>{
     const { username, password } = req.body;
 
-    if(username = "admin" && password == "1234"){
+    if(username == "admin" && password == "1234"){
         res.send("Login Success")
     }
     else{
-        res.send("Failed")
+        res.send("login Failed")
     }
 });
 
