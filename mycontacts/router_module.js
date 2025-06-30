@@ -20,16 +20,14 @@ console.log(process.env.DB_CONNECT)
 // 몽고DB연결
 dbConnect();
 
-app.get("/",(req,res)=>{
-})
-
-
 // 외부의 json과 url을 읽기
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 // get에서 경로를 use안에 사용 가능
 app.use(methodOverride("_method"));
+
+app.use("/", require("../routes/loginrouter"))
 app.use("/contacts",require("../routes/contactRoute"));
 app.listen(3000, ()=>{
     console.log("서버 실행 중");
