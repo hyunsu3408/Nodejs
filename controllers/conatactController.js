@@ -68,6 +68,7 @@ const deleteContact = asyncHandler(async(req,res)=>{
 })
 
 
+
 module.exports = {
     createContact,getAllContacts
     ,updateContact,deleteContact
