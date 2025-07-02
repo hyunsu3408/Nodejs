@@ -2,6 +2,12 @@ const asyncHandler = require("express-async-handler")
 const User = require("../models/userModel.js");
 //비밀번호 암호화 모듈
 const bcrypt = require("bcrypt");
+// 쿠키정보 읽어주는 모듈 cookie-parser 설치
+// jsonwebtoken 모듈 설치 후 .env에 저장하기
+require("dotenv").config();
+const jwtSecret = process.env.JWT_SECRET;
+const jwt = require("jsonwebtoken");
+
 
 // Get login page
 // GET/
@@ -12,15 +18,23 @@ const getLogin = (req,res)=>{
 
 // login user
 // post
-const loginuser = asyncHandler((req,res)=>{
+const loginuser = asyncHandler(async(req,res)=>{
     const { username, password } = req.body;
+    const user = await User.findOne({username});
+    if (!user){
+        return res.json({message:"일치하는 사용자가 없습니다."});
+    }else{
 
-    if(username == "admin" && password == "1234"){
-        res.send("Login Success")
     }
-    else{
-        res.send("login Failed")
+
+    const isMatch = await bcrypt.compare(password,user.password);
+    if(!isMatch){
+        return res.json({message:"비밀번호가 맞지않아요"});
     }
+
+    const token = jwt.sign({ id: user._id },jwtSecret);
+    res.cookie("token",token, {httpOnly:true});
+    res.redirect("/contacts");
 });
 
 // 사용자 등록
