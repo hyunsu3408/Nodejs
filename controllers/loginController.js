@@ -20,6 +20,8 @@ const getLogin = (req,res)=>{
 // post
 const loginuser = asyncHandler(async(req,res)=>{
     const { username, password } = req.body;
+    
+    //데이터베이스 내 사용자 정보 토대로 사용자검증
     const user = await User.findOne({username});
     if (!user){
         return res.json({message:"일치하는 사용자가 없습니다."});
@@ -32,6 +34,7 @@ const loginuser = asyncHandler(async(req,res)=>{
         return res.json({message:"비밀번호가 맞지않아요"});
     }
 
+    // 토큰 발급하여 res로 보내기
     const token = jwt.sign({ id: user._id },jwtSecret);
     res.cookie("token",token, {httpOnly:true});
     res.redirect("/contacts");
