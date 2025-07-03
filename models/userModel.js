@@ -1,3 +1,4 @@
+// 유저 모델
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
